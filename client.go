@@ -1,0 +1,5 @@
+package chinaums
+
+func NewClient() {
+
+}
