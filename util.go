@@ -1,4 +1,4 @@
-package common
+package chinaums
 
 import (
 	"crypto/hmac"
@@ -7,7 +7,6 @@ import (
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"
-	"github.com/qiwen698/chinaums/configs"
 	"log"
 	"sort"
 	"strconv"
@@ -61,7 +60,7 @@ func genHMAC256(ciphertext, key []byte) []byte {
 	return hmac
 }
 func Authorization(postJsonStr string, t time.Time) string {
-	var conf = configs.UmsConfig{}
+	var conf = UmsConfig{}
 	fmt.Printf("conf:%#v", conf)
 	timeYmd := t.Format("20060102150405")
 

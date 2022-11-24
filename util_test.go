@@ -1,4 +1,4 @@
-package common
+package chinaums
 
 import (
 	"testing"

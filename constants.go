@@ -1,4 +1,4 @@
-package common
+package chinaums
 
 const (
 	Success        = "TRADE_SUCCESS"

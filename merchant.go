@@ -1,4 +1,4 @@
-package configs
+package chinaums
 
 type UmsConfig struct {
 	AppId     string `json:"app_id"`
