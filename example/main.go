@@ -1,10 +1,9 @@
 package main
 
-import "fmt"
-import (
-	"github.com/qiwen698/chinaums/configs"
-)
+import "bytes"
 
 func main() {
-	fmt.Println("2222", configs.UmsConfig)
+	b := bytes.Buffer{}
+	b.WriteString("234")
+	b.Bytes()
 }
