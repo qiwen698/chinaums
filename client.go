@@ -2,8 +2,25 @@ package chinaums
 
 import (
 	"errors"
+	"log"
+	"os"
+	"runtime"
 	"strings"
+	"time"
 )
+
+func init() {
+	logName := time.Now().Format("2006-01-02") + ".log"
+	logDir := "./log/"
+	if runtime.GOOS == "windows" {
+		logDir = ".\\log\\"
+	}
+	file, e := os.OpenFile(logDir+logName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, os.ModePerm)
+	if e != nil {
+		log.Panic("日志文件打开异常")
+	}
+	log.SetOutput(file)
+}
 
 var GlobalConfig UmsConfig
 

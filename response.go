@@ -29,24 +29,36 @@ type WxAppCreatePaymentResponse struct {
 }
 
 type WxAppQueryPaymentResponse struct {
-	BuyerUsername     string `json:"buyerUsername"`
 	PayTime           string `json:"payTime"`
-	SeqID             string `json:"seqId"`
-	InvoiceAmount     int    `json:"invoiceAmount"`
-	SettleDate        string `json:"settleDate"`
-	BuyerID           string `json:"buyerId"`
-	TotalAmount       int    `json:"totalAmount"`
-	CouponAmount      int    `json:"couponAmount"`
-	BuyerPayAmount    int    `json:"buyerPayAmount"`
-	TargetOrderID     string `json:"targetOrderId"`
-	MerOrderID        string `json:"merOrderId"`
-	Status            string `json:"status"`
-	TargetSys         string `json:"targetSys"`
+	BuyerCashPayAmt   int    `json:"buyerCashPayAmt"`
+	ConnectSys        string `json:"connectSys"`
+	ErrMsg            string `json:"errMsg"`
 	MerName           string `json:"merName"`
 	Mid               string `json:"mid"`
+	InvoiceAmount     int    `json:"invoiceAmount"`
+	SettleDate        string `json:"settleDate"`
+	BillFunds         string `json:"billFunds"`
+	BuyerID           string `json:"buyerId"`
 	Tid               string `json:"tid"`
-	InstMid           string `json:"instMid"`
+	ReceiptAmount     int    `json:"receiptAmount"`
+	CouponAmount      int    `json:"couponAmount"`
+	TargetMid         string `json:"targetMid"`
+	CardAttr          string `json:"cardAttr"`
+	TargetOrderID     string `json:"targetOrderId"`
+	BillFundsDesc     string `json:"billFundsDesc"`
+	SubBuyerID        string `json:"subBuyerId"`
+	TargetStatus      string `json:"targetStatus"`
+	SeqID             string `json:"seqId"`
+	MerOrderID        string `json:"merOrderId"`
+	RefundAmount      int    `json:"refundAmount"`
+	TargetSys         string `json:"targetSys"`
+	BankInfo          string `json:"bankInfo"`
+	DelegatedFlag     string `json:"delegatedFlag"`
+	SettleRefID       string `json:"settleRefId"`
+	TotalAmount       int    `json:"totalAmount"`
+	ChnlCost          string `json:"chnlCost"`
 	ResponseTimestamp string `json:"responseTimestamp"`
 	ErrCode           string `json:"errCode"`
-	ErrMsg            string `json:"errMsg"`
+	BuyerPayAmount    int    `json:"buyerPayAmount"`
+	Status            string `json:"status"`
 }

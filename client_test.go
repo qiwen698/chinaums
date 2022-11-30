@@ -25,3 +25,19 @@ func TestNewClient(t *testing.T) {
 	}
 	t.Logf("params:%#v", params)
 }
+func TestQuery(t *testing.T) {
+	conf := UmsConfig{}
+	client, err := NewClient(WxAppPay, true, conf,
+		SetMerOrderId("b3dac2294c3ba1504864d65ff311"),
+	)
+	if err != nil {
+		t.Logf("err:%v", err)
+		return
+	}
+	params, err := client.Pay.QueryPayment(client.Config, client.OrderInfo)
+	if err != nil {
+		t.Errorf("err:%v", err)
+		return
+	}
+	t.Logf("params:%#v", params)
+}
