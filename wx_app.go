@@ -26,12 +26,22 @@ func (wx *WxApp) CreatePayment(conf UmsConfig, order OrderInfo) (res WxAppCreate
 	postData, _ := json.Marshal(app_param)
 	authorzation := Authorization(conf, postData, nowTime)
 	apiUrl := conf.ApiUrl + "/wx/unified-order" //请求的方法
+	if conf.WriteLog {
+		log.Printf("apiUrl:%v", apiUrl)
+		log.Printf("postData:%v", string(postData))
+		log.Printf("authorzation:%v", authorzation)
+	}
 	body, err := Request(apiUrl, postData, authorzation)
 	if err != nil {
+		log.Printf("err:%v", err)
 		return res, err
+	}
+	if conf.WriteLog {
+		log.Fatal(string(body))
 	}
 	err = json.Unmarshal(body, &res)
 	if err != nil {
+		log.Printf("err:%v", err)
 		return res, err
 	}
 	return res, err
@@ -49,13 +59,22 @@ func (wx WxApp) QueryPayment(conf UmsConfig, order OrderInfo) (res WxAppQueryPay
 	postData, _ := json.Marshal(app_param)
 	authorzation := Authorization(conf, postData, nowTime)
 	apiUrl := conf.ApiUrl + "/query" //请求的方法
+	if conf.WriteLog {
+		log.Printf("apiUrl:%v", apiUrl)
+		log.Printf("postData:%v", string(postData))
+		log.Printf("authorzation:%v", authorzation)
+	}
 	body, err := Request(apiUrl, postData, authorzation)
 	if err != nil {
+		log.Printf("err:%v", err)
 		return res, err
 	}
-	log.Fatal(string(body))
+	if conf.WriteLog {
+		log.Fatal(string(body))
+	}
 	err = json.Unmarshal(body, &res)
 	if err != nil {
+		log.Printf("err:%v", err)
 		return res, err
 	}
 	return res, err

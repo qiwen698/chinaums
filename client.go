@@ -10,6 +10,9 @@ import (
 )
 
 func init() {
+	InitLog()
+}
+func InitLog() {
 	logName := "chinaums" + time.Now().Format("2006-01-02") + ".log"
 	logDir := "./log/"
 	if runtime.GOOS == "windows" {
@@ -41,9 +44,11 @@ func NewClient(payType string, isPro bool, conf UmsConfig, orders ...OrderOption
 		conf.ApiUrl = "https://api-mop.chinaums.com/v1/netpay"
 	}
 	if conf.Mid == "" || conf.Tid == "" || conf.AppId == "" || conf.AppSecret == "" {
+		log.Print("配置信息不能为空")
 		return pay, errors.New("配置信息不能为空")
 	}
 	if payType == WxAppPay && conf.SubAppId == "" {
+		log.Print("微信子商户信息不能为空")
 		return pay, errors.New("微信子商户信息不能为空")
 	}
 	pay.Config = conf

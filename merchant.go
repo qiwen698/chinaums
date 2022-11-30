@@ -10,7 +10,8 @@ type UmsConfig struct {
 	Tid       string `json:"tid"` //终端号
 	NotifyUrl string `json:"notify_url"`
 	RefundUrl string `json:"refund_url"`
-	ShowUrl   string `json:"show_url"` //订单展示页面
+	ShowUrl   string `json:"show_url"`  //订单展示页面
+	WriteLog  bool   `json:"write_log"` //是否写入日志
 }
 
 type OrderInfo struct {
