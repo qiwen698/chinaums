@@ -15,6 +15,10 @@ func init() {
 	if runtime.GOOS == "windows" {
 		logDir = ".\\log\\"
 	}
+	_, err := os.Stat(logDir)
+	if nil != err {
+		os.MkdirAll(logDir, os.ModePerm)
+	}
 	file, e := os.OpenFile(logDir+logName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, os.ModePerm)
 	if e != nil {
 		log.Panic("日志文件打开异常")
