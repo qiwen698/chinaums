@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	logName := time.Now().Format("2006-01-02") + ".log"
+	logName := "chinaums" + time.Now().Format("2006-01-02") + ".log"
 	logDir := "./log/"
 	if runtime.GOOS == "windows" {
 		logDir = ".\\log\\"
